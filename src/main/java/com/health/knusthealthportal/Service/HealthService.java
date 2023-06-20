@@ -14,19 +14,22 @@ public class HealthService {
         this.healthRepository = healthRepository;
     }
 
-    public List<Appointment> findAllAppointments (Appointment appointment){
+    public List<Appointment> findAll() {
         return healthRepository.findAll();
     }
 
-    public Appointment createAppointment (Appointment appointment){
+    public Appointment createAppointment(Appointment appointment) {
         return healthRepository.save(appointment);
     }
 
-    public void update (Appointment appointment){
-         healthRepository.save(appointment);
+    public void update(Appointment appointment) {
+        healthRepository.save(appointment);
     }
-    public void delete (Appointment appointment){
+
+    public void delete(Appointment appointment) {
         healthRepository.delete(appointment);
     }
 
 }
+
+

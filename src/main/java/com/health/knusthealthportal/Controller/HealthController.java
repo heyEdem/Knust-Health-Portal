@@ -21,9 +21,9 @@ public class HealthController {
     }
 
     @GetMapping("/all")
-    public ResponseEntity<List<Appointment>>  getAll (){
-        List<Appointment> allAppointments =  healthService.findAllAppointments();
-        return new HttpEntity<>(allAppointments, HttpStatus.OK)
+    public ResponseEntity<List<Appointment>>  getAll(){
+        List<Appointment> appointments =  healthService.findAll();
+        return new ResponseEntity<>(appointments,HttpStatus.OK);
     }
 
     @PostMapping("/add")
