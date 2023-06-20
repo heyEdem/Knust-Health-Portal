@@ -2,13 +2,14 @@ package com.health.knusthealthportal.Service;
 
 import com.health.knusthealthportal.Repository.HealthRepository;
 import com.health.knusthealthportal.entities.Appointment;
+import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
 public class HealthService {
-    private HealthRepository healthRepository;
+    private final HealthRepository healthRepository;
 
     public HealthService(HealthRepository healthRepository) {
         this.healthRepository = healthRepository;

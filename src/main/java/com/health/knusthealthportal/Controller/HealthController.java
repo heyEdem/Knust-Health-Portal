@@ -3,7 +3,6 @@ package com.health.knusthealthportal.Controller;
 
 import com.health.knusthealthportal.Service.HealthService;
 import com.health.knusthealthportal.entities.Appointment;
-import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -14,7 +13,7 @@ import java.util.List;
 @RequestMapping("/home")
 public class HealthController {
 
-    private HealthService healthService;
+    private final HealthService healthService;
 
     public HealthController(HealthService healthService) {
         this.healthService = healthService;
@@ -28,7 +27,8 @@ public class HealthController {
 
     @PostMapping("/add")
     public ResponseEntity<Appointment> create (@RequestBody Appointment appointment){
-        return new ResponseEntity<>(HttpStatus.OK);
+        Appointment newAppointment = healthService.createAppointment(appointment);
+        return new ResponseEntity<>(newAppointment, HttpStatus.OK);
     }
 
     @PutMapping("/update")
