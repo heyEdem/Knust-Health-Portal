@@ -37,8 +37,9 @@ public class HealthController {
     }
 
     @DeleteMapping("/delete/{id}")
-        public ResponseEntity delete (@RequestParam("id") Long id){
-        return null;
+        public ResponseEntity delete (@PathVariable("id") Long id){
+        healthService.delete(id);
+        return new ResponseEntity(HttpStatus.OK);
     }
 
 }

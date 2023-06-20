@@ -26,8 +26,8 @@ public class HealthService {
         healthRepository.save(appointment);
     }
 
-    public void delete(Appointment appointment) {
-        healthRepository.delete(appointment);
+    public void delete(Long id) {
+        healthRepository.deleteById(id);
     }
 
 }
