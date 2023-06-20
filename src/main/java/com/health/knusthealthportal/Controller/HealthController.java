@@ -28,12 +28,12 @@ public class HealthController {
 
     @PostMapping("/add")
     public ResponseEntity<Appointment> create (@RequestBody Appointment appointment){
-        return null;
+        return new ResponseEntity<>(HttpStatus.OK);
     }
 
     @PutMapping("/update")
     public ResponseEntity<Appointment> update (@RequestBody Appointment appointment){
-        return null;
+        return new ResponseEntity<>(HttpStatus.OK);
     }
 
     @DeleteMapping("/delete/{id}")
