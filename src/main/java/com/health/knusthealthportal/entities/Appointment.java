@@ -1,9 +1,6 @@
 package com.health.knusthealthportal.entities;
 
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.Builder;
 import lombok.Data;
 import lombok.Getter;
@@ -13,10 +10,7 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 
 @Data
-@Table(name="appointments")
-@Builder
-@Getter
-@Setter
+@Entity
 public class Appointment {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
