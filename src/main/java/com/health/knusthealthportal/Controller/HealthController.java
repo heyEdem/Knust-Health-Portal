@@ -16,7 +16,6 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import java.util.List;
 
 @RestController
-@RequestMapping("/home")
 public class HealthController {
 
     private final HealthRepository service;
