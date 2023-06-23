@@ -1,0 +1,1 @@
+insert into table appointments values ("Nana Kofi", "Headache","CURRENT_DATE", "CURRENT_TIME");

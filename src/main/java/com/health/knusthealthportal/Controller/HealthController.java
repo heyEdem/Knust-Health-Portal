@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.DeleteMapping;
 
-
 import java.util.List;
 
 @RestController
@@ -24,7 +23,7 @@ public class HealthController {
         this.service = service;
     }
 
-    @GetMapping("/all")
+    @GetMapping("/")
     public ResponseEntity<List<Appointment>>  getAll(){
         List<Appointment> appointments =  service.findAll();
         return new ResponseEntity<>(appointments,HttpStatus.OK);
