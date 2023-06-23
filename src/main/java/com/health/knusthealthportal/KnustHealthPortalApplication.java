@@ -1,6 +1,5 @@
 package com.health.knusthealthportal;
 
-import com.health.knusthealthportal.Service.HealthService;
 import com.health.knusthealthportal.entities.Appointment;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
