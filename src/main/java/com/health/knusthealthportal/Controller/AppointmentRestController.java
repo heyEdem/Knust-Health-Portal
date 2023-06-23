@@ -15,11 +15,11 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import java.util.List;
 
 @RestController
-public class HealthController {
+public class AppointmentRestController {
 
     private final AppointmentRepository service;
 
-    public HealthController(AppointmentRepository service) {
+    public AppointmentRestController(AppointmentRepository service) {
         this.service = service;
     }
 
