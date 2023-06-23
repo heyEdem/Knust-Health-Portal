@@ -19,27 +19,27 @@ public class AppointmentServiceImpl implements AppointmentService{
 
     @Override
     public List<Appointment> findAllAppointments() {
-        return null;
+        return repository.findAll();
     }
 
     @Override
     public Appointment createAppointment(Appointment appointment) {
-        return null;
+        return repository.save(appointment);
     }
 
     @Override
     public void updateAppointment(Appointment appointment) {
-
+        repository.save(appointment);
     }
 
     @Override
     public void deleteAppointment(Long id) {
-
+        repository.deleteById(id);
     }
 
     @Override
     public Optional<Appointment> findAppointmentById(Long id) {
-        return Optional.empty();
+        return repository.findById(id);
     }
 
 }
