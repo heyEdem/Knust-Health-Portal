@@ -1,7 +1,7 @@
 package com.health.knusthealthportal.Controller;
 
 import org.springframework.web.bind.annotation.PostMapping;
-import com.health.knusthealthportal.Repository.HealthRepository;
+import com.health.knusthealthportal.Repository.AppointmentRepository;
 import com.health.knusthealthportal.entities.Appointment;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -17,9 +17,9 @@ import java.util.List;
 @RestController
 public class HealthController {
 
-    private final HealthRepository service;
+    private final AppointmentRepository service;
 
-    public HealthController(HealthRepository service) {
+    public HealthController(AppointmentRepository service) {
         this.service = service;
     }
 

@@ -12,30 +12,10 @@ import java.util.Arrays;
 import java.util.List;
 
 @SpringBootApplication
-public class KnustHealthPortalApplication implements ApplicationRunner {
+public class KnustHealthPortalApplication  {
 
     public static void main(String[] args) {
         SpringApplication.run(KnustHealthPortalApplication.class, args);
     }
 
-    private HealthService healthService;
-
-    public KnustHealthPortalApplication(HealthService healthService) {
-        this.healthService = healthService;
-    }
-
-    @Override
-    public void run (ApplicationArguments args) throws Exception {
-        List<Appointment> appointments = healthService.findAppointments();
-
-        if (appointments == null && appointments.isEmpty()) {
-            Appointment app1 = Appointment.builder().studentName("Vera").description("Stomachache")
-                    .date(LocalDate.now()).time(LocalTime.now()).build();
-
-            Appointment app2 = Appointment.builder().studentName("Elvis").description("Headache")
-                    .date(LocalDate.now()).time(LocalTime.now()).build();
-
-            Arrays.asList(app1,app2).forEach(a -> healthService.add(a));
-        }
-    }
 }
