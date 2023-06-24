@@ -29,7 +29,7 @@ public class AppointmentController {
         return "booking";
     }
 
-    @PostMapping("/addbooking")
+    @PostMapping("/addBooking")
     public String addNewAppointment(Appointment appointment) {
         Appointment newAppointment = service.createAppointment(appointment);
         return "redirect:/";
@@ -48,5 +48,11 @@ public class AppointmentController {
             }
         }
         return "booking";
+    }
+
+    @DeleteMapping("/delete/{id}")
+    public String deleteAppointment(@PathVariable("id") Long id){
+        service.deleteAppointment(id);
+        return "redirect:/";
     }
 }
