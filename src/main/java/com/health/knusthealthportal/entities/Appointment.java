@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.LocalTime;
 
 @Builder
@@ -20,8 +21,7 @@ public class Appointment {
 
     private String description;
 
-    private LocalDate date;
+    private LocalDateTime date;
 
-    private LocalTime time;
 
 }

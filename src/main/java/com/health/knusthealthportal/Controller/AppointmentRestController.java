@@ -29,6 +29,11 @@ public class AppointmentRestController {
         return new ResponseEntity<>(appointments,HttpStatus.OK);
     }
 
+    @GetMapping("/login")
+    public String loginPage (){
+        return "login";
+    }
+
     @PostMapping("/add")
     public ResponseEntity<Appointment> create (Appointment appointment){
         Appointment newAppointment = service.save(appointment);
