@@ -15,8 +15,6 @@ public class AppointmentServiceImpl implements AppointmentService{
         this.repository = repository;
     }
 
-
-
     @Override
     public List<Appointment> findAllAppointments() {
         return repository.findAll();

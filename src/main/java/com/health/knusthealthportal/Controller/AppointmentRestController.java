@@ -1,10 +1,9 @@
 package com.health.knusthealthportal.Controller;
 
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PostMapping;
 import com.health.knusthealthportal.Repository.AppointmentRepository;
 import com.health.knusthealthportal.entities.Appointment;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -24,32 +23,33 @@ public class AppointmentRestController {
     }
 
     @GetMapping("/")
-    public ResponseEntity<List<Appointment>>  getAll(){
+    public String getAll(Model model){
         List<Appointment> appointments =  service.findAll();
-        return new ResponseEntity<>(appointments,HttpStatus.OK);
+        return "account.html";
     }
 
     @GetMapping("/login")
-    public String loginPage (){
-        return "login";
+    public String loginPage(Model model){
+        service.findAll();
+        return "sign-up";
     }
 
     @PostMapping("/add")
-    public ResponseEntity<Appointment> create (Appointment appointment){
-        Appointment newAppointment = service.save(appointment);
-        return new ResponseEntity<>(newAppointment, HttpStatus.OK);
+    public String create (Model model, Appointment appointment){
+        service.save(appointment);
+        return  "booking.html";
     }
 
     @RequestMapping("/update/{id}")
-    public ResponseEntity<Appointment> update (@PathVariable("id") Long id , @RequestBody Appointment appointment){
-         Appointment result =  service.save(appointment);
-        return new ResponseEntity<>(result, HttpStatus.OK);
+    public String   update (@PathVariable("id") Long id , @RequestBody Appointment appointment){
+         service.save(appointment);
+        return "booking.html";
     }
 
     @DeleteMapping("/delete/{id}")
-        public ResponseEntity delete(@PathVariable("id") Long id){
+        public String delete(@PathVariable("id") Long id){
         service.deleteById(id);
-        return new ResponseEntity(HttpStatus.OK);
+        return "account.html";
     }
 
 }
