@@ -1,6 +1,7 @@
 package com.health.knusthealthportal.Controller;
 
 import com.health.knusthealthportal.Service.AppointmentService;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
@@ -16,7 +17,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 
 import java.util.List;
 
-@RestController
+@Controller
 public class AppointmentRestController {
 
    private AppointmentService service;
