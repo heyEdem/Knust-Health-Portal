@@ -26,11 +26,11 @@ public class AppointmentRestController {
         this.service = service;
     }
 
-    @GetMapping("/")
+    @GetMapping("/app")
     public String getAll(Model model){
         List<Appointment> appointments =  service.findAllAppointments();
         model.addAttribute("appointment","appointment");
-        return "account";
+        return "index";
     }
 
     @GetMapping("/login")
