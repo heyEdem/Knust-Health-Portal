@@ -7,7 +7,7 @@ import java.util.Optional;
 
 public interface AppointmentService {
 
-    List<Appointment> findAllAppointments ();
+    List<Appointment> findAllAppointments();
 
     Appointment createAppointment(Appointment appointment);
 

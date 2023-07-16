@@ -1,6 +1,9 @@
 package com.health.knusthealthportal.Controller;
 
+import com.health.knusthealthportal.Service.AppointmentService;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.PostMapping;
 import com.health.knusthealthportal.Repository.AppointmentRepository;
 import com.health.knusthealthportal.entities.Appointment;
@@ -16,40 +19,48 @@ import java.util.List;
 @RestController
 public class AppointmentRestController {
 
-    private final AppointmentRepository service;
+   private AppointmentService service;
 
-    public AppointmentRestController(AppointmentRepository service) {
+    public AppointmentRestController(AppointmentService service) {
         this.service = service;
     }
 
     @GetMapping("/")
     public String getAll(Model model){
-        List<Appointment> appointments =  service.findAll();
-        return "account.html";
+        List<Appointment> appointments =  service.findAllAppointments();
+        model.addAttribute("appointment","appointment");
+        return "account";
     }
 
     @GetMapping("/login")
     public String loginPage(Model model){
-        service.findAll();
-        return "sign-up";
+        service.findAllAppointments();
+        return "signup";
     }
 
+    @GetMapping("/appointmentForm")
+    public String showForm(Model model){
+        model.addAttribute("appointment",new Appointment());
+        return "booking";
+    }
     @PostMapping("/add")
-    public String create (Model model, Appointment appointment){
-        service.save(appointment);
-        return  "booking.html";
+    public String create ( Model model, @Validated Appointment appointment, BindingResult bindingResult){
+        service.createAppointment(appointment);
+        List <Appointment> result = service.findAllAppointments();
+        model.addAttribute("appointments", result);
+        return "booking";
     }
 
     @RequestMapping("/update/{id}")
-    public String   update (@PathVariable("id") Long id , @RequestBody Appointment appointment){
-         service.save(appointment);
-        return "booking.html";
+    public String update (@PathVariable("id") Long id , @RequestBody Appointment appointment){
+         service.updateAppointment(appointment);
+         return"booking";
     }
 
     @DeleteMapping("/delete/{id}")
         public String delete(@PathVariable("id") Long id){
-        service.deleteById(id);
-        return "account.html";
+        service.deleteAppointment(id);
+        return "account";
     }
 
 }
