@@ -1,6 +1,9 @@
 <!DOCTYPE html>
-<html layout:decorate="layouts/defaultLayout" xmlns:layout="http://www.w3.org/1999/xhtml"
-      xmlns:th="http://www.thymeleaf.org" lang="en">
+<html
+        xmlns:th="http://thymeleaf.org"
+        xmlns:layout="http://ultraq.net.nz/thymeleaf/layout"
+        layout:decorate="~{layout}"
+        lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -29,10 +32,11 @@
                         <div class="main-img-container">
                             <img src="/static/svg2.svg" alt="" class="image">
                         </div>
-                        <a href="booking.html">
+                        <a href="/addBooking">
                             <button class="text-info">Click here to See a Doctor</button>
                         </a>
                     </div>
+
                     <div class="card animate__animated animate__slideInRight">
                         <div class="main-img-container">
                             <img src="/static/Teacher_ColouringBook.svg" alt="" class="image">
@@ -41,6 +45,7 @@
                             <button class="text-info">Click here to See a conselor</button>
                         </a>
                     </div>
+
                     <div class="card animate__animated animate__slideInLeft">
                         <div class="main-img-container">
                             <img src="/static/Capsule-Kapsel.svg" alt="" class="image">
@@ -49,6 +54,7 @@
                             <button class="text-info">Find A Drug</button>
                         </a>
                     </div>
+
                     <div class="card animate__animated animate__slideInRight">
                         <div class="main-img-container">
                             <img src="/static/Paper-note.svg" alt="" class="image">

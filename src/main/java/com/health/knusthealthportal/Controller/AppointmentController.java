@@ -24,12 +24,12 @@ public class AppointmentController {
         return "index";
     }
 
-    @GetMapping("/api/addBooking")
+    @GetMapping("/addBooking")
     public String postNewAppointment(Appointment appointment) {
         return "booking";
     }
 
-    @PostMapping("/api/addBooking")
+    @PostMapping("/addBooking")
     public String addNewAppointment(Appointment appointment) {
         Appointment newAppointment = service.createAppointment(appointment);
         return "redirect:/";

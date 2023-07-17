@@ -6,11 +6,9 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.PostMapping;
-import com.health.knusthealthportal.Repository.AppointmentRepository;
 import com.health.knusthealthportal.entities.Appointment;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -30,13 +28,12 @@ public class AppointmentRestController {
     public String getAll(Model model){
         List<Appointment> appointments =  service.findAllAppointments();
         model.addAttribute("appointment","appointment");
-        return "index";
+        return "appointmentpreview";
     }
 
     @GetMapping("/login")
     public String loginPage(Model model){
-        service.findAllAppointments();
-        return "signup";
+        return "login";
     }
 
     @GetMapping("/appointmentForm")
@@ -52,6 +49,12 @@ public class AppointmentRestController {
         return "booking";
     }
 
+    @GetMapping("/home")
+        public String home (Model model){
+            return "index";
+        }
+
+
     @RequestMapping("/update/{id}")
     public String update (@PathVariable("id") Long id , @RequestBody Appointment appointment){
          service.updateAppointment(appointment);
@@ -63,5 +66,6 @@ public class AppointmentRestController {
         service.deleteAppointment(id);
         return "account";
     }
+
 
 }
