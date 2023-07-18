@@ -160,11 +160,8 @@
           <h1>Booking Appointment with a Doctor</h1>
           <form th:action="@{/add}" action="#" th:object="${appointment}" method="post">
 
-            <label for="id"> Id:</label>
-            <input th:field="*{id}" type="text" id="name" name="name" required>
-
             <label for="studentName">Student Name:</label>
-            <input th:field="*{studentName}" type="text" id="name" name="name" required>
+            <input th:field="*{studentName}" type="text" id="studentName" name="name" required>
 
             <label for="description">Description:</label>
             <input th:field="*{description}" type="text" id="description" name="description" required>

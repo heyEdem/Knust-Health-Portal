@@ -133,6 +133,7 @@
             }
         }
     </style>
+    <script src="/static/app.js" defer ></script>
 </head>
 <body>
     <nav class="navbar">
@@ -159,13 +160,13 @@
                         <div class="title-box">
                             <h2>Login</h2>
                         </div>
-                        <div class="control-box">
+                        <form onsubmit="LoginHandler(event)" class="control-box">
                             <div class="input-box">
-                                <input type="text"  class="form-control" placeholder="Username" th:field="*{username}">
-                                <input type="text" class="form-control" placeholder="Password" th:field="*{password}">
+                                <input type="text"  class="form-control" placeholder="Username">
+                                <input type="text" class="form-control" placeholder="Password">
                             </div>
-                            <a href="./index.html"><button class="sign-in">Log In</button></a>
-                        </div>
+                            <button class="sign-in">Log In</button>
+                        </form>
                     </div>
                 </div>
             </div>

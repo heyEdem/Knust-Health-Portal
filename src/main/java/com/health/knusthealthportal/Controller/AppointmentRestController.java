@@ -5,13 +5,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 import com.health.knusthealthportal.entities.Appointment;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.DeleteMapping;
 
 import java.util.List;
 
@@ -36,6 +31,11 @@ public class AppointmentRestController {
         return "login";
     }
 
+    @PostMapping("/login")
+    public String Login(Model model) {
+        return "redirect:/";
+    }
+
     @GetMapping("/appointmentForm")
     public String showForm(Model model){
         model.addAttribute("appointment",new Appointment());
@@ -44,9 +44,12 @@ public class AppointmentRestController {
     @PostMapping("/add")
     public String create ( Model model, @Validated Appointment appointment, BindingResult bindingResult){
         service.createAppointment(appointment);
-        List <Appointment> result = service.findAllAppointments();
-        model.addAttribute("appointments", result);
-        return "booking";
+        return "redirect:/account";
+    }
+
+    @GetMapping("/account")
+    public String getAccount(Model model) {
+        return "account";
     }
 
     @GetMapping("/home")

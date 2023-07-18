@@ -13,8 +13,11 @@
 //    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 //        auth.inMemoryAuthentication()
 //                .withUser("doctor").password("{noop}1234").roles(UserRole.DOCTOR.name())
-//                .and().withUser("student").password("{noop}123").roles(UserRole.STUDENT.name())
-//                .and().withUser("user").password("{noop}12").roles(UserRole.READ_ONLY.name());
+//                .and().withUser("adbul").password("{noop}123").roles(UserRole.STUDENT.name())
+//                .and().withUser("edem").password("{noop}123").roles(UserRole.STUDENT.name())
+//                .and().withUser("enchil").password("{noop}123").roles(UserRole.STUDENT.name())
+//                .and().withUser("prince").password("{noop}123").roles(UserRole.STUDENT.name())
+//                .and().withUser("robert").password("{noop}123").roles(UserRole.STUDENT.name())
 //    }
 //
 //}
