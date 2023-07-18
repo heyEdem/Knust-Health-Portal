@@ -7,3 +7,7 @@ function LoginHandler(e) {
         method: "POST"
     });
 }
+
+function GetAppointmentPreview() {
+    fetch("/")
+}

@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import com.health.knusthealthportal.entities.Appointment;
 
 import java.util.List;
+import java.util.Optional;
 
 @Controller
 public class AppointmentRestController {
@@ -23,7 +24,7 @@ public class AppointmentRestController {
     public String getAll(Model model){
         List<Appointment> appointments =  service.findAllAppointments();
         model.addAttribute("appointment","appointment");
-        return "appointmentpreview";
+        return "preview";
     }
 
     @GetMapping("/login")
@@ -44,12 +45,14 @@ public class AppointmentRestController {
     @PostMapping("/add")
     public String create ( Model model, @Validated Appointment appointment, BindingResult bindingResult){
         service.createAppointment(appointment);
-        return "redirect:/account";
+        return "redirect:/my-appointment";
     }
 
-    @GetMapping("/account")
-    public String getAccount(Model model) {
-        return "account";
+    @GetMapping("/my-appointment")
+    public String getAccount(Model model, Appointment appointment) {
+        Optional<Appointment> result = service.findAppointmentById(appointment.getId());
+        model.addAttribute("appointment", result);
+        return "preview";
     }
 
     @GetMapping("/home")
