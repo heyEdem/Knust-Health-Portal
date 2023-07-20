@@ -39,7 +39,6 @@ public class AppointmentRestController {
 
     @GetMapping("/appointmentForm")
     public String showForm( Appointment appointment){
-        service.createAppointment(appointment);
         return "booking";
     }
     @PostMapping("/appointmentForm")
@@ -49,9 +48,7 @@ public class AppointmentRestController {
     }
 
     @GetMapping("/my-appointment")
-    public String getAccount(Model model, Appointment appointment) {
-        Optional<Appointment> result = service.findAppointmentById(appointment.getId());
-        model.addAttribute("appointment", result);
+    public String getAccount( Appointment appointment) {
         return "preview";
     }
 
