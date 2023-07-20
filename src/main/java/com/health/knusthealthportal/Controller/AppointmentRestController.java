@@ -3,7 +3,6 @@ package com.health.knusthealthportal.Controller;
 import com.health.knusthealthportal.Service.AppointmentService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import com.health.knusthealthportal.entities.Appointment;
@@ -42,14 +41,14 @@ public class AppointmentRestController {
         return "booking";
     }
     @PostMapping("/appointmentForm")
-    public String create (@Validated Appointment appointment){
-        service.createAppointment(appointment);
-        return "preview";
+    public String create (Appointment appointment){
+        Appointment result = service.createAppointment(appointment);
+        return "appointment-details";
     }
 
     @GetMapping("/my-appointment")
-    public String getAccount( Appointment appointment) {
-        return "preview";
+    public String getAccount() {
+        return "appointment-details";
     }
 
     @GetMapping("/")

@@ -21,6 +21,8 @@ public class Appointment {
 
     private LocalDateTime date;
 
+//    private Instant time = Instant.now();
+
     public Long getId() {
         return id;
     }
