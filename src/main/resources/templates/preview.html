@@ -22,18 +22,46 @@
             </ul>
           </nav>
         </section>  
-     <div class="Formcard">
-        <div class="details">
-            <div><li> <label>Appointment Number : {}</label> </li></div>
-           <div><li> <label> Name : </label> </li></div>
-           <div><li> <label> Student Number : </label> </li></div>
-           <div><li> <label> Date Of Appointment : </label> </li></div>
-           <div><li> <label> Time : </label> </li></div>
-           <div><li> <label> Location : </label> </li></div>
-           <div><li> <label> Name Of Doctor : </label> </li></div>
-           </div>
-     </div>
+<!--     <div class="Formcard">-->
+<!--        <div class="details">-->
+<!--            <div><li> <label>Appointment Number : {}</label> </li></div>-->
+<!--           <div><li> <label> Name : </label> </li></div>-->
+<!--           <div><li> <label> Student Number : </label> </li></div>-->
+<!--           <div><li> <label> Date Of Appointment : </label> </li></div>-->
+<!--           <div><li> <label> Time : </label> </li></div>-->
+<!--           <div><li> <label> Location : </label> </li></div>-->
+<!--           <div><li> <label> Name Of Doctor : </label> </li></div>-->
+<!--           </div>-->
+<!--     </div>-->
+          <div class="container">
+              <div class="card">
+                  <div class="card-body">
+                      <form action="#" th:action="@{/my-appointment}" th:object="${appointment}" method="get">
+                      <div class="row">
+                          <div class="form-group col-md-8">
+                              <label for="name" class="col-form-label">Appointment Number</label>
+                              <input type="text" th:field="${appointment.id}" class="form-control" id="name" placeholder="Title"/>
+                          </div>
 
+                          <div class="form-group col-md-8">
+                              <label for="author" class="col-form-label">Author</label>
+                              <input type="text" th:field="${appointment.studentName}" class="form-control" id="author" placeholder="Description"/>
+                          </div>
+                          <div class="form-group col-md-8">
+                              <label for="description" class="col-form-label">Description</label>
+                              <input type="text" th:field="${appointment.description}" class="form-control" id="description" placeholder="Description"/>
+                          </div>
+
+                          <div class="form-group col-md-8">
+                              <label for="price" class="col-form-label">Date</label>
+                              <input type="text" th:field="${appointment.date}" class="form-control" id="price" placeholder="Description"/>
+                          </div>
+                          <input type="hidden">
+                      </div>
+                      </form>
+                  </div>
+              </div>
+          </div>
     </section>
     <footer class="footer">
       <div>
