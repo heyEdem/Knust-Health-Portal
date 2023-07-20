@@ -38,14 +38,14 @@ public class AppointmentRestController {
     }
 
     @GetMapping("/appointmentForm")
-    public String showForm(Model model){
-        model.addAttribute("appointment",new Appointment());
+    public String showForm( Appointment appointment){
+        service.createAppointment(appointment);
         return "booking";
     }
-    @PostMapping("/add")
-    public String create ( Model model, @Validated Appointment appointment, BindingResult bindingResult){
+    @PostMapping("/appointmentForm")
+    public String create (@Validated Appointment appointment){
         service.createAppointment(appointment);
-        return "redirect:/my-appointment";
+        return "preview";
     }
 
     @GetMapping("/my-appointment")
@@ -55,7 +55,7 @@ public class AppointmentRestController {
         return "preview";
     }
 
-    @GetMapping("/home")
+    @GetMapping("/")
         public String home (Model model){
             return "index";
         }
