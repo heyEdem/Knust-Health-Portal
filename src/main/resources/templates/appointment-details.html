@@ -36,7 +36,7 @@
             </tr>
         </thead>
             <tbody>
-                <tr th:each="appointment": ${appointment}>
+                <tr th:each="appointment: ${appointments}">
                   <td th:text="${appointment.id}"></td>
                   <td th:text="${appointment.studentName}"></td>
                   <td th:text="${appointment.description}"></td>
