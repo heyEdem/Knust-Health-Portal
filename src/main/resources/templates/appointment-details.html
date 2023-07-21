@@ -26,39 +26,35 @@
 <!--  <div class="col-md-10">-->
 <!--    <h2 th:case="null">No record found!</h2>-->
 <!--    <div th:case="*">-->
-      <table class="table table-striped table-responsive-md" action="#" th:action="@{/my-appointment}" th:object="${book}" method="get">
+      <table class="table table-striped table-responsive-md" th:o>
         <thead>
-          <th>Appointment ID</th>
-          <th>Student Name</th>
-          <th>Description</th>
-          <th>Date</th>
-<!--          <th>Time</th>-->
-<!--          <th>Date</th>-->
-<!--          <th>Edit</th>-->
-<!--          <th>Delete</th>-->
-<!--          <th>File</th>-->
+            <tr>
+                <th>Appointment ID</th>
+                <th>Student Name</th>
+                <th>Description</th>
+                <th>Date</th>
+            </tr>
         </thead>
-
             <tbody>
-            <tr th:each="appointment": ${appointments}>
-              <td th:text="${appointment.getId()}"></td>
-              <td th:text="${appointment.getStudentName()}"></td>
-              <td th:text="${appointment.getDescription}"></td>
-              <td th:text="${appointment.getDate}"></td>
-<!--              <td th:text="${appointment.getTime}"></td>-->
-<!--              <td>-->
-<!--                <a th:href="@{/edit/{id}(id=${book.id})}" class="btn btn-warning">-->
-<!--          &lt;!&ndash;         sec:authorize="hasAnyRole('ADMIN','PUBLISHER')">&ndash;&gt;-->
-<!--                  <button class="btn btn-warning">Edit</button>-->
-<!--                </a>-->
-<!--              </td>-->
-<!--              <td>-->
-<!--                <a th:href="@{/delete/{id}(id=${book.id})}" class="btn btn-danger">-->
-<!--          &lt;!&ndash;         sec:authorize="hasRole('ADMIN')">&ndash;&gt;-->
-<!--                  <button class="btn btn-danger">Delete</button>-->
-<!--                </a>-->
-<!--            </td>-->
-           </tr>
+                <tr th:each="appointment": ${appointment}>
+                  <td th:text="${appointment.id}"></td>
+                  <td th:text="${appointment.studentName}"></td>
+                  <td th:text="${appointment.description}"></td>
+                  <td th:text="${appointment.date}"></td>
+    <!--              <td th:text="${appointment.getTime}"></td>-->
+    <!--              <td>-->
+    <!--                <a th:href="@{/edit/{id}(id=${book.id})}" class="btn btn-warning">-->
+    <!--          &lt;!&ndash;         sec:authorize="hasAnyRole('ADMIN','PUBLISHER')">&ndash;&gt;-->
+    <!--                  <button class="btn btn-warning">Edit</button>-->
+    <!--                </a>-->
+    <!--              </td>-->
+    <!--              <td>-->
+    <!--                <a th:href="@{/delete/{id}(id=${book.id})}" class="btn btn-danger">-->
+    <!--          &lt;!&ndash;         sec:authorize="hasRole('ADMIN')">&ndash;&gt;-->
+    <!--                  <button class="btn btn-danger">Delete</button>-->
+    <!--                </a>-->
+    <!--            </td>-->
+               </tr>
         </tbody>
       </table>
     </div>

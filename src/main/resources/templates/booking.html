@@ -7,6 +7,7 @@
   <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" type="text/css" href="/static/bookingpage.css">
+
 </head>
 <body>
   <main class="main">
@@ -32,21 +33,21 @@
       <div class="form-wrapper">
         <div class="Form-container">
           <h1>Booking Appointment with a Doctor</h1>
-          <form th:action="@{/appointmentForm}" action="#" th:object="${appointment}" method="post">
+          <form th:action="@{/appointmentForm}"  th:object="${appointment}" method="post">
 
             <label for="studentName">Student Name:</label>
-            <input th:field="${appointment.studentName}" type="text" id="studentName" name="studentName" >
+            <input type="text" th:field="*{studentName}"  id="studentName"  >
 <!--            <input th:field="${appointment.studentName}" type="text" id="studentName" name="studentName" required>-->
 
             <label for="description">Description:</label>
-            <input th:field="${appointment.description}" type="text" id="description" name="description" >
+            <input th:field="*{description}" type="text" id="description"  >
 <!--            <input th:field="${appointment.description}" type="text" id="description" name="description" required>-->
 
             <label for="date">Date:</label>
-            <input th:field="${appointment.date}" type="date" id="date" name="date" min="8:00am" max="20:00pm" >
+            <input th:field="*{date}" type="date" id="date"  min="8:00am" max="20:00pm" >
 <!--            <input th:field="${appointment.date}" type="date" id="date" name="date" min="8:00am" max="20:00pm" required>-->
 
-            <input type="submit" value="Submit">
+            <input type="submit" class="btn btn-primary" value="Submit">
           </form>
         </div>
       </div>
