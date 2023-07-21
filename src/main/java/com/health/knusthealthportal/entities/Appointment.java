@@ -3,6 +3,7 @@ package com.health.knusthealthportal.entities;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.sql.Date;
 import java.time.LocalDateTime;
 
 @Builder
@@ -20,8 +21,7 @@ public class Appointment {
 
     private String description;
 
-    private LocalDateTime date;
-
+    private Date date;
 //    private Instant time = Instant.now();
 
     public Long getId() {
@@ -48,11 +48,11 @@ public class Appointment {
         this.description = description;
     }
 
-    public LocalDateTime getDate() {
+    public Date getDate() {
         return date;
     }
 
-    public void setDate(LocalDateTime date) {
+    public void setDate(Date date) {
         this.date = date;
     }
 }
