@@ -17,14 +17,14 @@ public class AppointmentController {
         this.service = service;
     }
 
-    @GetMapping("/my-appointment")
+    @GetMapping("/all")
     public List<Appointment> getAllAppointments() {
         return service.findAllAppointments();
 
     }
 
 
-    @PostMapping("/appointmentForm")
+    @PostMapping("/addBooking")
     public Appointment addNewAppointment(Appointment appointment) {
         return service.createAppointment(appointment);
     }

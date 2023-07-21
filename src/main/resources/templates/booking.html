@@ -36,7 +36,7 @@
           <form th:action="@{/appointmentForm}"  th:object="${appointment}" method="post">
 
             <label for="studentName">Student Name:</label>
-            <input type="text" th:field="*{studentName}"  id="studentName"  >
+            <input type="text" th:field="*{studentName}"  id="studentName" >
 <!--            <input th:field="${appointment.studentName}" type="text" id="studentName" name="studentName" required>-->
 
             <label for="description">Description:</label>

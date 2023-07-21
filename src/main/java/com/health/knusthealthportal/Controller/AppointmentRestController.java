@@ -48,7 +48,8 @@ public class AppointmentRestController {
     @GetMapping("/my-appointment")
     public String getAccount(Model model, Appointment appointment) {
          List <Appointment> appointments = service.findAllAppointments();
-        model.addAttribute("apppointments",appointments);
+        System.out.println(appointments);
+        model.addAttribute("appointments",appointments);
         return "appointment-details";
     }
 
