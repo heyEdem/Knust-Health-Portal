@@ -32,7 +32,7 @@ public class AppointmentController {
 
     @PutMapping
     @RequestMapping({"/api/edit", "/api/edit{id}"})
-    public String editAppointment(Model model, @PathVariable("id") Optional<UUID> id) {
+    public String editAppointment(Model model, @PathVariable("id") Optional<Long> id) {
         if (id.isPresent()) {
             Optional<Appointment> appointment = service.findAppointmentById(id.get());
 
@@ -46,7 +46,7 @@ public class AppointmentController {
     }
 
     @DeleteMapping("/api/delete/{id}")
-    public String deleteAppointment(@PathVariable("id") UUID id){
+    public String deleteAppointment(@PathVariable("id") Long id){
         service.deleteAppointment(id);
         return "redirect:/";
     }

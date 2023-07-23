@@ -32,12 +32,12 @@ public class AppointmentServiceImpl implements AppointmentService{
     }
 
     @Override
-    public void deleteAppointment(UUID id) {
+    public void deleteAppointment(Long id) {
         repository.deleteById(id);
     }
 
     @Override
-    public Optional<Appointment> findAppointmentById(UUID id) {
+    public Optional<Appointment> findAppointmentById(Long id) {
         return repository.findById(id);
     }
 

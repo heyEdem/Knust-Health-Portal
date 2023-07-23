@@ -14,7 +14,7 @@ public interface AppointmentService {
 
     void updateAppointment(Appointment appointment);
 
-    void deleteAppointment(UUID id);
+    void deleteAppointment(Long id);
 
-    Optional<Appointment> findAppointmentById(UUID id);
+    Optional<Appointment> findAppointmentById(Long id);
 }

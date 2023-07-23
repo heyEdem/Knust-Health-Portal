@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import com.health.knusthealthportal.entities.Appointment;
 
 import java.util.List;
-import java.util.UUID;
+
 
 @Controller
 public class AppointmentRestController {
@@ -59,13 +59,13 @@ public class AppointmentRestController {
 
 
     @RequestMapping("/update/{id}")
-    public String update (@PathVariable("id") UUID id , @RequestBody Appointment appointment){
+    public String update (@PathVariable("id") Long id , @RequestBody Appointment appointment){
          service.updateAppointment(appointment);
          return"booking";
     }
 
     @DeleteMapping("/delete/{id}")
-        public String delete(@PathVariable("id") UUID id){
+        public String delete(@PathVariable("id") Long id){
         service.deleteAppointment(id);
         return "account";
     }
