@@ -14,14 +14,14 @@ import java.util.UUID;
 @Table(name="appointments")
 public class Appointment {
     @Id
-    @NotNull
-    private  UUID id = UUID.randomUUID();
+    @GeneratedValue(strategy = GenerationType.UUID)
+    private  UUID id;
 
-    private String studentName;
+    private  String studentName;
 
-    private String description;
+    private  String description;
 
-    private Date date;
+    private  Date date;
 
 
 
