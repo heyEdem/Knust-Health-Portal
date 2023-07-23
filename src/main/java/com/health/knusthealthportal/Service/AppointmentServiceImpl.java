@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.UUID;
 
 @Service
 public class AppointmentServiceImpl implements AppointmentService{
@@ -31,12 +32,12 @@ public class AppointmentServiceImpl implements AppointmentService{
     }
 
     @Override
-    public void deleteAppointment(Long id) {
+    public void deleteAppointment(UUID id) {
         repository.deleteById(id);
     }
 
     @Override
-    public Optional<Appointment> findAppointmentById(Long id) {
+    public Optional<Appointment> findAppointmentById(UUID id) {
         return repository.findById(id);
     }
 

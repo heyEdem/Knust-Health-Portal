@@ -4,6 +4,7 @@ import com.health.knusthealthportal.entities.Appointment;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.UUID;
 
 public interface AppointmentService {
 
@@ -13,7 +14,7 @@ public interface AppointmentService {
 
     void updateAppointment(Appointment appointment);
 
-    void deleteAppointment(Long id);
+    void deleteAppointment(UUID id);
 
-    Optional<Appointment> findAppointmentById(Long id);
+    Optional<Appointment> findAppointmentById(UUID id);
 }
