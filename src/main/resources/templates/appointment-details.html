@@ -44,14 +44,21 @@
             <td th:text="${appointment.studentName}"></td>
             <td th:text="${appointment.description}"></td>
             <td th:text="${appointment.date}"></td>
+
+<!--            <td>-->
+<!--                <a th:href="@{/delete/{id}(id=${book.id})}" class="btn btn-danger">-->
+<!--&lt;!&ndash;                   sec:authorize="hasRole('ADMIN')">&ndash;&gt;-->
+<!--                    <button class="btn btn-danger">Delete</button>-->
+<!--                </a>-->
+<!--            </td>-->
         </tr>
         </tbody>
     </table>
-    <div>
-       <a th:href="/appointmentForm" style="right: 50px">
-            <button class="btn btn-danger">Back</button>
-       </a>
-    </div>
+<!--    <div>-->
+<!--       <a th:href="@{/appointmentForm}" style="right: 50px">-->
+<!--            <button class="btn btn-danger">Back</button>-->
+<!--       </a>-->
+<!--    </div>-->
 </div>
 </body>
 

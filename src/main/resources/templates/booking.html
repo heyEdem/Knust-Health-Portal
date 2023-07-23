@@ -35,7 +35,6 @@
           <h1>Booking Appointment with a Doctor</h1>
 
           <div th:if="${successMessage}" th:text="${successMessage}" class="alert alert-success" role="alert"></div>
-<!--          <div th:if="${errorMessage}" th:text="${errorMessage}" class="alert alert-error" role="alert"></div>-->
 
           <form th:action="@{/appointmentForm}"  th:object="${appointment}" method="post">
 
@@ -46,7 +45,7 @@
             <input type="text" th:field="*{description}"  id="description" required>
 
             <label for="date">Date</label>
-            <input type="text"th:field="*{date}"  id="date">
+            <input type="date" th:field="*{date}"  id="date">
 
             <input type="submit" class="btn btn-primary" value="Submit" required>
           </form>
