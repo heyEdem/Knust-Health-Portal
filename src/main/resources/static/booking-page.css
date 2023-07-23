@@ -5,12 +5,12 @@
   font-family: 'Roboto', sans-serif;
 }
 
-nav {
+ .nav{
     background-color: #2c3e50;
      color: #fff;
   }
 
-  .itemslist{
+  .items-list{
     display: flex;
     justify-content: start;
     align-items: center;
@@ -73,7 +73,7 @@ nav {
     background-color: #f2f2f2;
   }
   
-  .leftpanelContainer {
+  .left-panelContainer {
     display: flex;
   }
   

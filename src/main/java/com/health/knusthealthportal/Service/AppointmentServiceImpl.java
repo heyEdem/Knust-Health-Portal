@@ -16,6 +16,7 @@ public class AppointmentServiceImpl implements AppointmentService{
         this.repository = repository;
     }
 
+
     @Override
     public List<Appointment> findAllAppointments() {
         return repository.findAll();
@@ -32,13 +33,12 @@ public class AppointmentServiceImpl implements AppointmentService{
     }
 
     @Override
-    public void deleteAppointment(Long id) {
+    public void deleteAppointment(UUID id) {
         repository.deleteById(id);
     }
 
     @Override
-    public Optional<Appointment> findAppointmentById(Long id) {
-        return repository.findById(id);
+    public Optional<Appointment> findAppointmentById(UUID id) {
+       return repository.findById(id);
     }
-
 }

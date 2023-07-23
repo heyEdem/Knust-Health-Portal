@@ -1,9 +1,9 @@
 package com.health.knusthealthportal.entities;
 import jakarta.persistence.*;
 import lombok.*;
+import org.antlr.v4.runtime.misc.NotNull;
 
 import java.sql.Date;
-import java.time.Instant;
 import java.util.UUID;
 
 @Builder
@@ -14,10 +14,8 @@ import java.util.UUID;
 @Table(name="appointments")
 public class Appointment {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-
-    private UUID appointmentId;
+    @NotNull
+    private  UUID id = UUID.randomUUID();
 
     private String studentName;
 
@@ -25,21 +23,8 @@ public class Appointment {
 
     private Date date;
 
-    public Long getId() {
-        return id;
-    }
 
-    public void setId(Long id) {
-        this.id = id;
-    }
 
-    public UUID getAppointmentId() {
-        return appointmentId;
-    }
-
-    public void setAppointmentId(UUID appointmentId) {
-        this.appointmentId = appointmentId;
-    }
 
     public String getStudentName() {
         return studentName;
