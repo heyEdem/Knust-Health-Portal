@@ -4,6 +4,7 @@ import lombok.*;
 import org.antlr.v4.runtime.misc.NotNull;
 
 import java.sql.Date;
+import java.time.LocalDateTime;
 import java.util.UUID;
 
 @Builder
@@ -21,7 +22,8 @@ public class Appointment {
 
     private  String description;
 
-    private  Date date;
+    private LocalDateTime date;
+
 
 
 
