@@ -33,21 +33,22 @@
       <div class="form-wrapper">
         <div class="Form-container">
           <h1>Booking Appointment with a Doctor</h1>
+
+          <div th:if="${successMessage}" th:text="${successMessage}" class="alert alert-success" role="alert"></div>
+<!--          <div th:if="${errorMessage}" th:text="${errorMessage}" class="alert alert-error" role="alert"></div>-->
+
           <form th:action="@{/appointmentForm}"  th:object="${appointment}" method="post">
 
             <label for="studentName">Student Name:</label>
-            <input type="text" th:field="*{studentName}"  id="studentName" >
-<!--            <input th:field="${appointment.studentName}" type="text" id="studentName" name="studentName" required>-->
+            <input type="text" th:field="*{studentName}"  id="studentName" required>
 
-            <label for="description">Description:</label>
-            <input th:field="*{description}" type="text" id="description"  >
-<!--            <input th:field="${appointment.description}" type="text" id="description" name="description" required>-->
+            <label for="description">Description</label>
+            <input type="text" th:field="*{description}"  id="description" required>
 
-            <label for="date">Date:</label>
-            <input th:field="*{date}" type="date" id="date"  min="8:00am" max="20:00pm" >
-<!--            <input th:field="${appointment.date}" type="date" id="date" name="date" min="8:00am" max="20:00pm" required>-->
+            <label for="date">Date</label>
+            <input type="text"th:field="*{date}"  id="date">
 
-            <input type="submit" class="btn btn-primary" value="Submit">
+            <input type="submit" class="btn btn-primary" value="Submit" required>
           </form>
         </div>
       </div>

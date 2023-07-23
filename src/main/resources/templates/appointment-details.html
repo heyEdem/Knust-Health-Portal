@@ -11,13 +11,13 @@
 
     <style>
         .main{
-            max-width: 1200px;
+            max-width: 900px;
             margin: auto;
         }
     </style>
 </head>
 <body>
-<main class="main">
+<div class="main">
     <section class="navsection">
         <nav class="topnav ">
             <ul class="itemslist">
@@ -47,7 +47,12 @@
         </tr>
         </tbody>
     </table>
-</main>
+    <div>
+       <a th:href="/appointmentForm" style="right: 50px">
+            <button class="btn btn-danger">Back</button>
+       </a>
+    </div>
+</div>
 </body>
 
 </html>

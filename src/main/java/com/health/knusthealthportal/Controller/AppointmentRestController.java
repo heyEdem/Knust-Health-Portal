@@ -40,7 +40,10 @@ public class AppointmentRestController {
     }
 
     @PostMapping("/appointmentForm")
-    public String create (Model model, Appointment appointment){
+    public String create (Model model, Appointment appointment) {
+        if (appointment.getDate() != null && appointment.getDescription() != null && appointment.getStudentName() != null) {
+            model.addAttribute("successMessage", "Your appointment has been successfully scheduled ");
+        }
         Appointment result = service.createAppointment(appointment);
         return "redirect:/my-appointment";
     }
