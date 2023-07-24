@@ -26,7 +26,8 @@
             <th>Description</th>
             <th>Date</th>
             <th>Time</th>
-            <th>Doctor</th>
+<!--            <th>Doctor</th>-->
+            <th>Action</th>
         </tr>
         </thead>
         <tbody>
@@ -36,13 +37,7 @@
             <td th:text="${appointment.description}"></td>
             <td th:text="${appointment.date}"></td>
             <td th:text="${appointment.time}"></td>
-
-<!--            <td>-->
-<!--                <a th:href="@{/delete/{id}(id=${book.id})}" class="btn btn-danger">-->
-<!--&lt;!&ndash;                   sec:authorize="hasRole('ADMIN')">&ndash;&gt;-->
-<!--                    <button class="btn btn-danger">Delete</button>-->
-<!--                </a>-->
-<!--            </td>-->
+            <td><button type="button" class="btn btn-danger">Delete</button></td>
         </tr>
         </tbody>
     </table>
