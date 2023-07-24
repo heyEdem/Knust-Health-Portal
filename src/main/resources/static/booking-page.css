@@ -57,6 +57,9 @@
     background-color: #f2f2f2;
     border:  1px solid blue;
   }
+  .h1{
+      font-color: #f2f2f2;
+  }
   .form-wrapper{
     width:85%;
     height: 100%;
