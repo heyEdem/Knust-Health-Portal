@@ -11,7 +11,7 @@
 
     <style>
         .main{
-            max-width: 900px;
+            max-width: 1200px;
             margin: auto;
         }
     </style>
@@ -26,8 +26,9 @@
             <th>Description</th>
             <th>Date</th>
             <th>Time</th>
-<!--            <th>Doctor</th>-->
-            <th>Action</th>
+            <th>Doctor</th>
+            <th>Edit</th>
+            <th>Delete</th>
         </tr>
         </thead>
         <tbody>
@@ -37,15 +38,14 @@
             <td th:text="${appointment.description}"></td>
             <td th:text="${appointment.date}"></td>
             <td th:text="${appointment.time}"></td>
+            <td>Dr Winner</td>
+            <td><button type="button" class="btn btn-primary">Edit</button></td>
             <td><button type="button" class="btn btn-danger">Delete</button></td>
         </tr>
         </tbody>
     </table>
-<!--    <div>-->
-<!--       <a th:href="@{/appointmentForm}" style="right: 50px">-->
-<!--            <button class="btn btn-danger">Back</button>-->
-<!--       </a>-->
-<!--    </div>-->
+            <button class="btn btn-secondary">Back</button>
+
 </div>
 </body>
 
