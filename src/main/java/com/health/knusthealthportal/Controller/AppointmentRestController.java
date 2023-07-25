@@ -47,15 +47,15 @@ public class AppointmentRestController {
             model.addAttribute("successMessage", "Your appointment has been successfully scheduled ");
         }
         Appointment result = service.createAppointment(appointment);
-        return "redirect:/my-appointment";
+        return "redirect:/confirmation";
     }
 
-    @GetMapping("/my-appointment")
+    @GetMapping("/confirmation")
     public String getAccount(Model model, Appointment appointment) {
          List <Appointment> appointments = service.findAllAppointments();
         System.out.println(appointments);
         model.addAttribute("appointments",appointments);
-        return "appointment-details";
+        return "confirmation-page";
     }
 
 
@@ -69,6 +69,10 @@ public class AppointmentRestController {
         public String delete(@PathVariable("id") UUID id){
         service.deleteAppointment(id);
         return "account";
+    }
+    @GetMapping("/all-appointments")
+    public String allAppointments(){
+        return "all-appointments";
     }
 
 
