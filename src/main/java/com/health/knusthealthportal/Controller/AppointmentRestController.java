@@ -3,7 +3,6 @@ package com.health.knusthealthportal.Controller;
 import com.health.knusthealthportal.Service.AppointmentService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import com.health.knusthealthportal.entities.Appointment;
 
@@ -39,7 +38,7 @@ public class AppointmentRestController {
 
     @GetMapping("/appointmentForm")
     public String showForm(Model model, Appointment appointment){
-        return "booking";
+        return "doc-booking";
     }
 
     @PostMapping("/appointmentForm")
@@ -63,7 +62,7 @@ public class AppointmentRestController {
     @RequestMapping("/update/{id}")
     public String update (@PathVariable("id") UUID id , @RequestBody Appointment appointment){
          service.updateAppointment(appointment);
-         return"booking";
+         return "doc-booking";
     }
 
     @RequestMapping("/delete/{id}")
@@ -78,12 +77,12 @@ public class AppointmentRestController {
         return "all-appointments";
     }
 
-    @PutMapping
+    @PatchMapping
     @RequestMapping({"/edit","edit/{id}"})
-    public String editAppointment (Model model, @PathVariable("id") Optional<UUID> id){
+    public String editAppointment (Model model, @RequestBody Appointment appointment, @PathVariable("id") Optional<UUID> id){
         if (id.isPresent()) {
-            Optional <Appointment> appointment = service.findAppointmentById(id.get());
-            service.updateAppointment(appointment.get());
+            Optional <Appointment> result = service.findAppointmentById(id.get());
+            service.updateAppointment(result.get());
 //            if (appointment.isPresent()) {
 //                model.addAttribute("appointment", appointment);
 //            }
@@ -93,7 +92,7 @@ public class AppointmentRestController {
                             model.addAttribute("appointment", appointment);
 
         }
-        return "booking";
+        return "redirect:/all-appointments";
     }
 
 

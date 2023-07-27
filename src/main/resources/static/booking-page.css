@@ -27,9 +27,11 @@
     background-color: #ddd;
     color: black;
   }
+  .container{
+      margin-top: 50px;
+  }
   
-  
-  form {
+  .form {
     display: flex;
     flex-direction: column;
   }
