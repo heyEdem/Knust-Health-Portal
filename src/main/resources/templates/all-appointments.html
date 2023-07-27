@@ -39,8 +39,14 @@
             <td th:text="${appointment.date}"></td>
             <td th:text="${appointment.time}"></td>
             <td>Dr Winner</td>
-            <td><button type="button" class="btn btn-primary">Edit</button></td>
-            <td><button type="button" class="btn btn-danger">Delete</button></td>
+            <td>
+                <button type="button" class="btn btn-primary">Edit</button>
+            </td>
+            <td>
+                <a th:href="@{/delete/{id}(id=${appointment.id})}" class="btn btn-danger">
+                    <button class="btn btn-danger">Delete</button>
+                </a>
+            </td>
         </tr>
         </tbody>
     </table>

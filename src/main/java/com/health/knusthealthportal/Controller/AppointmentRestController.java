@@ -65,13 +65,15 @@ public class AppointmentRestController {
          return"booking";
     }
 
-    @DeleteMapping("/delete/{id}")
+    @RequestMapping("/delete/{id}")
         public String delete(@PathVariable("id") UUID id){
         service.deleteAppointment(id);
-        return "account";
+        return "redirect:/all-appointments";
     }
     @GetMapping("/all-appointments")
-    public String allAppointments(){
+    public String allAppointments(Model model, Appointment appointment){
+        List <Appointment> appointments = service.findAllAppointments();
+        model.addAttribute("appointments",appointments);
         return "all-appointments";
     }
 
