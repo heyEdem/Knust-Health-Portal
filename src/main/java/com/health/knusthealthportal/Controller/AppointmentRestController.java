@@ -31,16 +31,12 @@ public class AppointmentRestController {
         return "login";
     }
 
-    @PostMapping("/login")
-    public String Login(Model model) {
-        return "redirect:/";
-    }
-
     @GetMapping("/appointmentForm")
     public String showForm(Model model, Appointment appointment){
         return "doc-booking";
     }
 
+    ////Post Mapping for Doctor's appointment
     @PostMapping("/appointmentForm")
     public String create (Model model, Appointment appointment) {
         if (appointment.getDate() != null && appointment.getDescription() != null && appointment.getStudentName() != null) {
@@ -94,6 +90,7 @@ public class AppointmentRestController {
         }
         return "redirect:/all-appointments";
     }
+
 
 
 }
