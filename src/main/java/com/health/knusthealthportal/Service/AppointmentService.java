@@ -17,4 +17,5 @@ public interface AppointmentService {
     void deleteAppointment(UUID id);
 
     Optional<Appointment> findAppointmentById(UUID id);
+
 }

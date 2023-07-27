@@ -83,12 +83,15 @@ public class AppointmentRestController {
     public String editAppointment (Model model, @PathVariable("id") Optional<UUID> id){
         if (id.isPresent()) {
             Optional <Appointment> appointment = service.findAppointmentById(id.get());
-            if (appointment.isPresent()) {
-                model.addAttribute("appointment", appointment);
-            }
-            else{
-                model.addAttribute("appointment", new Appointment());
-            }
+            service.updateAppointment(appointment.get());
+//            if (appointment.isPresent()) {
+//                model.addAttribute("appointment", appointment);
+//            }
+//            else{
+//                model.addAttribute("appointment", new Appointment());
+//            }
+                            model.addAttribute("appointment", appointment);
+
         }
         return "booking";
     }
