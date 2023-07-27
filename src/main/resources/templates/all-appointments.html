@@ -40,7 +40,9 @@
             <td th:text="${appointment.time}"></td>
             <td>Dr Winner</td>
             <td>
-                <button type="button" class="btn btn-primary">Edit</button>
+                <a th:href="@{/edit/{id}(id=${appointment.id})}" class="btn btn-warning">
+                    <button class="btn btn-warning">Edit</button>
+                </a>
             </td>
             <td>
                 <a th:href="@{/delete/{id}(id=${appointment.id})}" class="btn btn-danger">

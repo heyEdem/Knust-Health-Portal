@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import com.health.knusthealthportal.entities.Appointment;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
 
 
@@ -75,6 +76,21 @@ public class AppointmentRestController {
         List <Appointment> appointments = service.findAllAppointments();
         model.addAttribute("appointments",appointments);
         return "all-appointments";
+    }
+
+    @PutMapping
+    @RequestMapping({"/edit","edit/{id}"})
+    public String editAppointment (Model model, @PathVariable("id") Optional<UUID> id){
+        if (id.isPresent()) {
+            Optional <Appointment> appointment = service.findAppointmentById(id.get());
+            if (appointment.isPresent()) {
+                model.addAttribute("appointment", appointment);
+            }
+            else{
+                model.addAttribute("appointment", new Appointment());
+            }
+        }
+        return "booking";
     }
 
 
