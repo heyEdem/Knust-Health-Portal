@@ -55,8 +55,10 @@ public class AppointmentRestController {
     }
 
 
+    @PutMapping
     @RequestMapping("/update/{id}")
     public String update (@PathVariable("id") UUID id , @RequestBody Appointment appointment){
+         Optional<Appointment> updatedAppointment = service.findAppointmentById(id);
          service.updateAppointment(appointment);
          return "doc-booking";
     }
@@ -72,25 +74,5 @@ public class AppointmentRestController {
         model.addAttribute("appointments",appointments);
         return "all-appointments";
     }
-
-    @PatchMapping
-    @RequestMapping({"/edit","edit/{id}"})
-    public String editAppointment (Model model, @RequestBody Appointment appointment, @PathVariable("id") Optional<UUID> id){
-        if (id.isPresent()) {
-            Optional <Appointment> result = service.findAppointmentById(id.get());
-            service.updateAppointment(result.get());
-//            if (appointment.isPresent()) {
-//                model.addAttribute("appointment", appointment);
-//            }
-//            else{
-//                model.addAttribute("appointment", new Appointment());
-//            }
-                            model.addAttribute("appointment", appointment);
-
-        }
-        return "redirect:/all-appointments";
-    }
-
-
 
 }
