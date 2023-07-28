@@ -6,6 +6,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import com.health.knusthealthportal.entities.Appointment;
 
+import java.sql.Date;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
@@ -39,9 +40,6 @@ public class AppointmentRestController {
     ////Post Mapping for Doctor's appointment
     @PostMapping("/appointmentForm")
     public String create (Model model, Appointment appointment) {
-        if (appointment.getDate() != null && appointment.getDescription() != null && appointment.getStudentName() != null) {
-            model.addAttribute("successMessage", "Your appointment has been successfully scheduled ");
-        }
         Appointment result = service.createAppointment(appointment);
         return "redirect:/confirmation";
     }
@@ -57,11 +55,11 @@ public class AppointmentRestController {
 
     @PutMapping
     @RequestMapping("/update/{id}")
-    public String update (@PathVariable("id") UUID id , @RequestBody Appointment appointment){
-         Optional<Appointment> updatedAppointment = service.findAppointmentById(id);
-         service.updateAppointment(appointment);
-         return "doc-booking";
+    public String update (@PathVariable("id") UUID id ){
+        service.updateAppointment(id);
+         return "redirect:/appointmentForm";
     }
+
 
     @RequestMapping("/delete/{id}")
         public String delete(@PathVariable("id") UUID id){
