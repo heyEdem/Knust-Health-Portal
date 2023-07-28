@@ -29,16 +29,10 @@ public class AppointmentServiceImpl implements AppointmentService{
     }
 
     @Override
-    public void updateAppointment( UUID id) {
-        Optional<Appointment> appointment = repository.findById(id);
-        if (appointment.isPresent()){
-            Appointment updatedAppointment = appointment.get();
-            updatedAppointment.setStudentName("");
-            updatedAppointment.setDescription("");
-//            updatedAppointment.setDate(2023-05-05);
-//            updatedAppointment.setTime(22:00);
-            repository.save(updatedAppointment);
-        }
+    public void updateAppointment(Appointment appointment) {
+        repository.findById(appointment.getId());
+        repository.save(appointment);
+
     }
 
     @Override

@@ -55,8 +55,8 @@ public class AppointmentRestController {
 
     @PutMapping
     @RequestMapping("/update/{id}")
-    public String update (@PathVariable("id") UUID id ){
-        service.updateAppointment(id);
+    public String update( @RequestBody Appointment appointment ){
+        service.updateAppointment(appointment);
          return "redirect:/appointmentForm";
     }
 

@@ -13,7 +13,7 @@ public interface AppointmentService {
 
     Appointment createAppointment(Appointment appointment);
 
-    void updateAppointment(UUID id);
+    void updateAppointment( Appointment appointment);
 
     void deleteAppointment(UUID id);
 
