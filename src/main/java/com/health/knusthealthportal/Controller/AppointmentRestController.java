@@ -37,7 +37,6 @@ public class AppointmentRestController {
         return "doc-booking";
     }
 
-    ////Post Mapping for Doctor's appointment
     @PostMapping("/appointmentForm")
     public String create (Model model, Appointment appointment) {
         Appointment result = service.createAppointment(appointment);
@@ -52,12 +51,18 @@ public class AppointmentRestController {
         return "confirmation-page";
     }
 
+//    @PutMapping
 
-    @PutMapping
-    @RequestMapping("/update/{id}")
-    public String update( @RequestBody Appointment appointment ){
-        service.updateAppointment(appointment);
-         return "redirect:/appointmentForm";
+   @PostMapping("/editAppointment")
+    public String update(@ModelAttribute Appointment appointment){
+         service.updateAppointment(appointment);
+         return "redirect:/all-appointments";
+    }
+
+    @GetMapping("/editAppointment/{id}")
+    public String editAppointmentForm(@PathVariable("id") UUID id, Model model){
+        model.addAttribute("appointment",service.findAppointmentById(id));
+        return "doc-update";
     }
 
 
