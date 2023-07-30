@@ -5,17 +5,14 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import com.health.knusthealthportal.entities.Appointment;
-
-import java.sql.Date;
 import java.util.List;
-import java.util.Optional;
 import java.util.UUID;
 
 
 @Controller
 public class AppointmentRestController {
 
-   private AppointmentService service;
+   private final AppointmentService service;
 
     public AppointmentRestController(AppointmentService service) {
         this.service = service;

@@ -37,13 +37,13 @@
                     <div class="title-box">
                         <h2>Login</h2>
                     </div>
-                    <form onsubmit="LoginHandler(event)" class="control-box">
+                    <form onsubmit="LoginHandler(event)" class="control-box" th:action="@{/login}" method="post" th:object="${student}" >
                         <div class="input-box">
-                            <input type="text"  class="form-control" placeholder="Username">
-                            <input type="text" class="form-control" placeholder="Password">
+                            <input type="text"  class="form-control" placeholder="Username" id="username" name="username">
+                            <input type="text" class="form-control" placeholder="Password"id="password" name="password">
                             <input type="text" class="form-control" placeholder="Reference Number">
                         </div>
-                        <button class="sign-in">Log In</button>
+                        <button type="submit" value="Log in" class="sign-in">Log In</button>
                     </form>
                 </div>
             </div>
