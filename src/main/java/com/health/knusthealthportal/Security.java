@@ -15,8 +15,6 @@ public class Security {
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http.csrf().disable()
                 .authorizeRequests()
-                .antMatchers("/","/login")
-                .permitAll()
                 .and()
                 .formLogin(form -> form
                         .loginPage("/login")
