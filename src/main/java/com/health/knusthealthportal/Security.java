@@ -13,18 +13,22 @@ import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 public class Security {
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-        http
+        http.csrf().disable()
                 .authorizeRequests()
+                .antMatchers("/","/login")
+                .permitAll()
                 .and()
                 .formLogin(form -> form
                         .loginPage("/login")
                         .defaultSuccessUrl("/")
                         .loginProcessingUrl("/login")
                         .failureUrl("/login?error=true")
-                        .permitAll()
-                ).logout(
-                        logout -> logout.logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
-                                .permitAll());
+                        .permitAll())
+                .logout(logout -> logout
+                        .logoutRequestMatcher(
+                                new AntPathRequestMatcher("/logout"))
+                                .permitAll()
+                );
         return http.build();
 
     }

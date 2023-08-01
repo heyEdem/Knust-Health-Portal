@@ -11,3 +11,4 @@ public class config implements WebMvcConfigurer {
         registry.addResourceHandler("/static/**").addResourceLocations("classpath:/static/");
     }
 }
+
