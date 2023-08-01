@@ -9,6 +9,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.UUID;
+
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
@@ -16,6 +18,8 @@ import lombok.NoArgsConstructor;
 @Entity
 public class Student {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private UUID id;
     private String username;
     private String password;
 }
