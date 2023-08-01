@@ -15,7 +15,6 @@ import lombok.NoArgsConstructor;
 @Data
 @Entity
 public class Student {
-    @GeneratedValue(strategy = GenerationType.AUTO)
     @Id
     private String username;
     private String password;

@@ -9,8 +9,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/static/login.css">
     <title>Log In</title>
-
-    <script src="/static/app.js" defer ></script>
 </head>
 <body>
 <nav class="navbar">
@@ -30,6 +28,9 @@
         <h2 class="heading animate__animated animate__fadeInLeftBig">WELCOME TO THE STUDENT HEALTH PORTAL</h2>
         <div class="info-page">
             <div class="container">
+                <div th:if="${param.fail}" class="alert alert-danger">
+                        Wrong username or password
+                </div>
                 <div class="box img-box">
                     <img src="/static/Young-Male-Doctor.svg" alt="" class="img">
                 </div>
@@ -37,10 +38,12 @@
                     <div class="title-box">
                         <h2>Login</h2>
                     </div>
-                    <form onsubmit="LoginHandler(event)" class="control-box" th:action="@{/login}" method="post" th:object="${student}" >
+                    <form class="control-box" role="form" th:action="@{/login}" method="post" th:object="${student}" >
                         <div class="input-box">
-                            <input type="text"  class="form-control" placeholder="Username" id="username" name="username">
-                            <input type="text" class="form-control" placeholder="Password"id="password" name="password">
+                            <input type="text"  class="form-control"
+                                   placeholder="Username" id="username" name="username" th:field="*{username}">
+                            <input type="text" class="form-control"
+                                   placeholder="Password"id="password" name="password" th:field="*{password}">
                         </div>
                         <button type="submit" value="Log in" class="sign-in">Log In</button>
                     </form>
