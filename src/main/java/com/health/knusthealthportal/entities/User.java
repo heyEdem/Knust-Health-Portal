@@ -1,10 +1,7 @@
 package com.health.knusthealthportal.entities;
 
 import com.health.knusthealthportal.Roles;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -17,10 +14,11 @@ import java.util.UUID;
 @AllArgsConstructor
 @Data
 @Entity
+@Table(name = "users")
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private UUID id;
+    private int id;
     private String username;
     private String password;
     private Roles role;

@@ -24,33 +24,35 @@ public class KnustHealthPortalApplication implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
         User s1 = new User();
-        s1.setId(UUID.randomUUID());
+        s1.setId(2);
         s1.setUsername("abdul");
         s1.setPassword("123");
         s1.setRole(STUDENT);
 
         User s2 = new User();
-        s2.setId(UUID.randomUUID());
+        s2.setId(1);
         s1.setUsername("edem");
         s2.setPassword("123");
         s2.setRole(ADMIN);
 
         User s3 = new User();
-        s3.setId(UUID.randomUUID());
+        s3.setId(3);
         s3.setUsername("enchil");
         s3.setPassword("123");
+        s3.setRole(STUDENT);
+
 
         User s4 = new User();
-        s4.setId(UUID.randomUUID());
+        s4.setId(4);
         s4.setUsername("prince");
         s4.setPassword("123");
-        s1.setRole(DOCTOR);
+        s4.setRole(DOCTOR);
 
         User s5 = new User();
-        s5.setId(UUID.randomUUID());
+        s5.setId(5);
         s5.setUsername("robert");
         s5.setPassword("123");
-        s1.setRole(STUDENT);
+        s5.setRole(STUDENT);
 
         this.userRepository.save(s1);
         this.userRepository.save(s2);
