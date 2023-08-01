@@ -1,5 +1,6 @@
 package com.health.knusthealthportal.entities;
 
+import com.health.knusthealthportal.Roles;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -22,4 +23,5 @@ public class Student {
     private UUID id;
     private String username;
     private String password;
+    private Roles role;
 }
