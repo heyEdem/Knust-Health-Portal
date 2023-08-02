@@ -23,6 +23,14 @@ public class AppointmentRestController {
         return "index";
     }
 
+    @GetMapping("/find")
+    public String find (Model model){
+        return "find-drug";
+    }
+    @GetMapping("/account")
+    public String getAccount(Model model){
+        return "profile";
+    }
 
     @GetMapping("/login")
     public String loginPage(Model model){
