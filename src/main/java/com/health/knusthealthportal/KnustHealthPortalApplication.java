@@ -24,15 +24,15 @@ public class KnustHealthPortalApplication implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
         User s1 = new User();
-        s1.setId(2);
+        s1.setId(1);
         s1.setUsername("abdul");
-        s1.setPassword("123");
+        s1.setPassword("1");
         s1.setRole(STUDENT);
 
         User s2 = new User();
-        s2.setId(1);
+        s2.setId(2);
         s1.setUsername("edem");
-        s2.setPassword("123");
+        s2.setPassword("12");
         s2.setRole(ADMIN);
 
         User s3 = new User();
@@ -45,13 +45,13 @@ public class KnustHealthPortalApplication implements CommandLineRunner {
         User s4 = new User();
         s4.setId(4);
         s4.setUsername("prince");
-        s4.setPassword("123");
+        s4.setPassword("1234");
         s4.setRole(DOCTOR);
 
         User s5 = new User();
         s5.setId(5);
         s5.setUsername("robert");
-        s5.setPassword("123");
+        s5.setPassword("12345");
         s5.setRole(STUDENT);
 
         this.userRepository.save(s1);

@@ -18,7 +18,7 @@ public class AppointmentRestController {
         this.service = service;
     }
 
-    @GetMapping("/")
+    @GetMapping("/home")
     public String home (Model model){
         return "index";
     }
