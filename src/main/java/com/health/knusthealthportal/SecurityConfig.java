@@ -17,7 +17,8 @@ public class SecurityConfig {
                     .and()
                     .formLogin()
                     .loginPage("/login")
-                    .permitAll();
+                    .and()
+                    .rememberMe()
         return http.build();
     }
 }
