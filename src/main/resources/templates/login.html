@@ -18,7 +18,7 @@
                 <img src="../static/logo.png" alt="" class="img">
             </div>
             <div class="nav-links">
-                <a href="login">Login</a>
+                <a href="/login">Login</a>
             </div>
         </div>
     </div>
@@ -31,6 +31,9 @@
                 <div th:if="${param.fail}" class="alert alert-danger">
                         Wrong username or password
                 </div>
+                <div th:if="${param.logout}" class="alert alert-danger">
+                        you have been logged out!
+                </div>
                 <div class="box img-box">
                     <img src="/static/Young-Male-Doctor.svg" alt="" class="img">
                 </div>
@@ -40,10 +43,8 @@
                     </div>
                     <form class="control-box" role="form" th:action="@{/login}" method="post" th:object="${student}" >
                         <div class="input-box">
-                            <input type="text"  class="form-control"
-                                   placeholder="Username" id="username" name="username" th:field="*{username}">
-                            <input type="text" class="form-control"
-                                   placeholder="Password"id="password" name="password" th:field="*{password}">
+                            <input type="text"  class="form-control" placeholder="Username" id="username" name="username" th:field="*{username}">
+                            <input type="text" class="form-control" placeholder="Password"id="password" name="password" th:field="*{password}">
                         </div>
                         <button type="submit" value="Log in" class="sign-in">Log In</button>
                     </form>

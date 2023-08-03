@@ -20,6 +20,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const currentDate = new Date();
 
         if (selectedDate < currentDate) {
+            alert("Can't enter a previous date")
             this.value = ''; // Clear the input field if the date is in the past
         } else {
         }
