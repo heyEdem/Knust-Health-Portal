@@ -49,12 +49,12 @@ xmlns:sec="www.thymeleaf.org/extras/spring-security">
             <td th:text="${appointment.time}"></td>
             <td>Dr Winner</td>
             <td>
-                <a th:href="@{/app/editAppointment/{id}(id=${appointment.id})}" class="btn btn-warning">
+                <a th:href="@{/editAppointment/{id}(id=${appointment.id})}" class="btn btn-warning">
                     <button class="btn btn-warning">Edit</button>
                 </a>
             </td>
             <td>
-                <a th:href="@{/app/delete/{id}(id=${appointment.id})}" class="btn btn-danger">
+                <a th:href="@{/delete/{id}(id=${appointment.id})}" class="btn btn-danger">
                     <button class="btn btn-danger">Delete</button>
                 </a>
             </td>
