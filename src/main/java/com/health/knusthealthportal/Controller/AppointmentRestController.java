@@ -33,7 +33,7 @@ public class AppointmentRestController {
     }
 
     @GetMapping("/login")
-    public String loginPage(Model model){
+    public String loginPage(){
         return "login";
     }
 
