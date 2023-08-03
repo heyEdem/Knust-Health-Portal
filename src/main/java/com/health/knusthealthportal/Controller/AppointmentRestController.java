@@ -18,16 +18,16 @@ public class AppointmentRestController {
         this.service = service;
     }
 
-    @GetMapping("/home")
+    @GetMapping("/app")
     public String home (Model model){
         return "index";
     }
 
-    @GetMapping("/find")
+    @GetMapping("/app/find")
     public String find (Model model){
         return "find-drug";
     }
-    @GetMapping("/account")
+    @GetMapping("/app/account")
     public String getAccount(Model model){
         return "profile";
     }
@@ -37,18 +37,18 @@ public class AppointmentRestController {
         return "login";
     }
 
-    @GetMapping("/appointmentForm")
+    @GetMapping("/app/appointmentForm")
     public String showForm(Model model, Appointment appointment){
         return "doc-booking";
     }
 
-    @PostMapping("/appointmentForm")
+    @PostMapping("/app/appointmentForm")
     public String create (Model model, Appointment appointment) {
         Appointment result = service.createAppointment(appointment);
-        return "redirect:/confirmation";
+        return "redirect:/app/confirmation";
     }
 
-    @GetMapping("/confirmation")
+    @GetMapping("/app/confirmation")
     public String getAccount(Model model, Appointment appointment) {
          List <Appointment> appointments = service.findAllAppointments();
         System.out.println(appointments);
@@ -58,25 +58,25 @@ public class AppointmentRestController {
 
 //    @PutMapping
 
-   @PostMapping("/editAppointment")
+   @PostMapping("/app/editAppointment")
     public String update(@ModelAttribute Appointment appointment){
          service.updateAppointment(appointment);
-         return "redirect:/all-appointments";
+         return "redirect:/app/app/all-appointments";
     }
 
-    @GetMapping("/editAppointment/{id}")
+    @GetMapping("/app/editAppointment/{id}")
     public String editAppointmentForm(@PathVariable("id") UUID id, Model model){
         model.addAttribute("appointment",service.findAppointmentById(id));
         return "doc-update";
     }
 
 
-    @RequestMapping("/delete/{id}")
+    @RequestMapping("/app/delete/{id}")
         public String delete(@PathVariable("id") UUID id){
         service.deleteAppointment(id);
-        return "redirect:/all-appointments";
+        return "redirect:/app/all-appointments";
     }
-    @GetMapping("/all-appointments")
+    @GetMapping("/app/all-appointments")
     public String allAppointments(Model model, Appointment appointment){
         List <Appointment> appointments = service.findAllAppointments();
         model.addAttribute("appointments",appointments);
