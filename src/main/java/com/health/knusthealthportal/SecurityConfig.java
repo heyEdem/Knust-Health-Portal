@@ -20,19 +20,20 @@ public class SecurityConfig {
             http
                     .csrf().disable()
                     .authorizeHttpRequests()
-                    .requestMatchers("/home","/appointmentForm","/static/**").permitAll()
                     .requestMatchers("/all-appointments").hasRole(Roles.ADMIN.name())
-                    .anyRequest().authenticated()
+                    .requestMatchers("/home","/appointmentForm","/static/**").permitAll()
+                    .requestMatchers("/login").permitAll()
+                    .anyRequest()
+                    .authenticated()
                     .and()
                     .formLogin().loginPage("/login").permitAll()
-                    //No need to add a LoginController.
-                    // Needed because if you don't put this, when you call the POST to login you will be redirected to the login.html page.
                     .defaultSuccessUrl("/home", true)
-                    .failureUrl("/login").permitAll()
+                    .failureUrl("/login?error=true").permitAll()
                     .and()
                     .logout().permitAll().logoutRequestMatcher(new AntPathRequestMatcher("/logout"));
     return http.build();
     }
+
     @Bean
     public InMemoryUserDetailsManager userDetailsService() {
         UserDetails user1 = User.withUsername("edem")

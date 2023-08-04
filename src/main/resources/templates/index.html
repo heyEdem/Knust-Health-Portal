@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html
         xmlns:th="http://thymeleaf.org"
-        xmlns:layout="http://ultraq.net.nz/thymeleaf/layout"
+        xmlns:layout="http://ultraq.net.nz/thymeleaf/layout" xmlns:sec="http://www.w3.org/1999/xhtml"
         layout:decorate="~{layout}"
         lang="en">
 <head>
@@ -13,9 +13,7 @@
     <title>Main Page</title>
 
     <link rel="stylesheet" type="text/css" href="/static/style.css">
-    <style>
-        @
-    </style>
+
 </head>
 <body>
     <main class="main-page">
@@ -29,7 +27,7 @@
                         <p class="name">Abdul Ganuine Alhassan</p>
                     </div>
                     <div style="margin-left: 600px">
-                        <a href="/all-appointments" class="btn btn-success">All appointments</a>
+                        <a href="/all-appointments" class="btn btn-success" sec:authorize="hasAnyRole('ADMIN','DOCTOR')">All appointments</a>
                     </div>
                 </div>
             </div>
