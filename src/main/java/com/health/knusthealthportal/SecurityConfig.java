@@ -52,7 +52,7 @@ public class SecurityConfig {
                 .password(passwordEncoder().encode("12345"))
                 .roles(Roles.STUDENT.name())
                 .build();
-        UserDetails user5 = User.withUsername("edwin")
+        UserDetails user5 = User.withUsername("da don")
                 .password(passwordEncoder().encode("123456"))
                 .roles(Roles.STUDENT.name())
                 .build();
