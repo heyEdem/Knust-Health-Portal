@@ -31,17 +31,17 @@ public class AppointmentServiceImpl implements AppointmentService{
 
     @Override
     public void updateAppointment( Appointment appointment) {
-        Appointment result =  repository.findById(appointment.getId()).orElseThrow(
-                ()->new ResourceNotFoundException("Appointment not found"));
+        Optional <Appointment> result =  repository.findById(appointment.getId());
+//                .orElseThrow(()->new ResourceNotFoundException("Appointment not found"));
         Appointment appointment1 = null;
-//        if (!result.isEmpty())
+        if (!result.isEmpty()){
             appointment1 = result.get();
             appointment1.setStudentName(appointment.getStudentName());
             appointment1.setDescription(appointment.getDescription());
             appointment1.setTime(appointment.getTime());
             appointment1.setDate(appointment.getDate());
             repository.save(appointment1);
-
+        }
     }
 
     @Override
