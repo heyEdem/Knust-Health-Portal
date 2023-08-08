@@ -2,6 +2,8 @@ package com.health.knusthealthportal.Service;
 
 import com.health.knusthealthportal.Repository.AppointmentRepository;
 import com.health.knusthealthportal.entities.Appointment;
+import org.hibernate.annotations.NotFound;
+import org.springframework.data.crossstore.ChangeSetPersister;
 import org.springframework.stereotype.Service;
 
 import java.sql.Date;
@@ -30,15 +32,14 @@ public class AppointmentServiceImpl implements AppointmentService{
 
     @Override
     public void updateAppointment( Appointment appointment) {
-        Optional<Appointment> result =  repository.findById(appointment.getId());
+        Appointment result =  repository.findById(appointment.getId()).orElseThrow(
+                ()->new ChangeSetPersister.NotFoundException("Appointment not found"));
         Appointment appointment1 = null;
-        if (!result.isEmpty()){
-            appointment1 = result.get();
-            appointment1.setStudentName(appointment.getStudentName());
-            appointment1.setDescription(appointment.getDescription());
-            appointment1.setTime(appointment.getTime());
-            appointment1.setDate(appointment.getDate());
-            repository.save(appointment1);
+            result.setStudentName(appointment.getStudentName());
+            result.setDescription(appointment.getDescription());
+            result.setTime(appointment.getTime());
+            result.setDate(appointment.getDate());
+            repository.save(result);
         }
     }
 
