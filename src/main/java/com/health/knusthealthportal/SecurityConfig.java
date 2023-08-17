@@ -56,6 +56,10 @@ public class SecurityConfig {
                 .password(passwordEncoder().encode("123456"))
                 .roles(Roles.STUDENT.name())
                 .build();
+        UserDetails user6 =  User.withUsername("Chris")
+                .password(passwordEncoder().encode("esi"))
+                .roles(Roles.STUDENT.name())
+                .build();
         return new InMemoryUserDetailsManager(user1, user2, user3, user4, user5);
 
     }
