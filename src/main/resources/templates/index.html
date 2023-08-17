@@ -24,7 +24,7 @@
                         <img src="/static/man-male-user-icon-15874-svg.svg" alt="" class="image">
                     </div>
                     <div class="user-name">
-                        <p class="name">Abdul Ganuine Alhassan</p>
+                         <b sec:authentication="principal.Username"></b>
                     </div>
                     <div style="margin-left: 600px">
                         <a href="/all-appointments" class="btn btn-success" sec:authorize="hasAnyRole('ADMIN','DOCTOR')">All appointments</a>
