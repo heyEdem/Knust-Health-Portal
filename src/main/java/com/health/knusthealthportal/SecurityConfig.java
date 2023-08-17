@@ -60,7 +60,7 @@ public class SecurityConfig {
                 .password(passwordEncoder().encode("esi"))
                 .roles(Roles.STUDENT.name())
                 .build();
-        return new InMemoryUserDetailsManager(user1, user2, user3, user4, user5);
+        return new InMemoryUserDetailsManager(user1, user2, user3, user4, user5, user6);
 
     }
     @Bean
