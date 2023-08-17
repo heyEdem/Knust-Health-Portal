@@ -36,23 +36,23 @@ public class SecurityConfig {
 
     @Bean
     public InMemoryUserDetailsManager userDetailsService() {
-        UserDetails user1 = User.withUsername("edem")
+        UserDetails user1 = User.withUsername("Edem")
                 .password(passwordEncoder().encode("12"))
                 .roles(Roles.ADMIN.name())
                 .build();
-        UserDetails user2 = User.withUsername("abdul")
+        UserDetails user2 = User.withUsername("Abdul")
                 .password(passwordEncoder().encode("123"))
                 .roles(Roles.DOCTOR.name())
                 .build();
-        UserDetails user3 = User.withUsername("prince")
+        UserDetails user3 = User.withUsername("Prince")
                 .password(passwordEncoder().encode("1234"))
                 .roles(Roles.STUDENT.name())
                 .build();
-        UserDetails user4 = User.withUsername("robert")
+        UserDetails user4 = User.withUsername("Robert")
                 .password(passwordEncoder().encode("12345"))
                 .roles(Roles.STUDENT.name())
                 .build();
-        UserDetails user5 = User.withUsername("da don")
+        UserDetails user5 = User.withUsername("Edwin")
                 .password(passwordEncoder().encode("123456"))
                 .roles(Roles.STUDENT.name())
                 .build();
