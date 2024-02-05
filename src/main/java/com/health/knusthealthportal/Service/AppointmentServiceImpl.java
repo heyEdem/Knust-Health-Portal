@@ -3,6 +3,7 @@ package com.health.knusthealthportal.Service;
 import com.health.knusthealthportal.Exception.ResourceNotFoundException;
 import com.health.knusthealthportal.Repository.AppointmentRepository;
 import com.health.knusthealthportal.entities.Appointment;
+import jakarta.persistence.EntityNotFoundException;
 import org.springframework.stereotype.Service;
 
 import java.sql.Date;
@@ -31,17 +32,23 @@ public class AppointmentServiceImpl implements AppointmentService{
 
     @Override
     public void updateAppointment( Appointment appointment) {
-        Optional <Appointment> result =  repository.findById(appointment.getId());
-//                .orElseThrow(()->new ResourceNotFoundException("Appointment not found"));
-        Appointment appointment1 = null;
-        if (!result.isEmpty()){
-            appointment1 = result.get();
-            appointment1.setStudentName(appointment.getStudentName());
-            appointment1.setDescription(appointment.getDescription());
-            appointment1.setTime(appointment.getTime());
-            appointment1.setDate(appointment.getDate());
-            repository.save(appointment1);
+u        Appointment result =  repository.findById(appointment.getId()).orElseThrow(()-> new EntityNotFoundException("Could not find appointment"));
+        if (result != null){
+            if (appointment.getStudentName() != null) result.setStudentName(appointment.getStudentName());
+            if (appointment.getDescription() != null) result.setDescription(appointment.getDescription());
+            if (appointment.getDate() != null)        result.setDate(appointment.getDate());
+            if (appointment.getTime() != null)        result.setTime(appointment.getTime());
         }
+
+//        Appointment appointment1 = null;
+//        if (result.isPresent()){
+//            appointment1 = result.get();
+//            appointment1.setStudentName(appointment.getStudentName());
+//            appointment1.setDescription(appointment.getDescription());
+//            appointment1.setTime(appointment.getTime());
+//            appointment1.setDate(appointment.getDate());
+//            repository.save(appointment1);
+//        }
     }
 
     @Override
